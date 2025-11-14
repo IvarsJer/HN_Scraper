@@ -1,0 +1,170 @@
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.articles-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.articles-table thead {
+  background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+  color: white;
+}
+
+.articles-table thead th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  border: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.articles-table tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: all 0.2s ease;
+}
+
+.articles-table tbody tr:hover {
+  background-color: #fff8f0;
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(255, 102, 0, 0.1);
+}
+
+.articles-table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.article-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.article-link:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+.points-cell {
+  text-align: center;
+  width: 100px;
+}
+
+.points-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+.hn-id-cell {
+  width: 120px;
+  text-align: center;
+}
+
+.hn-link {
+  color: #ff6600;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.6rem;
+  background: #fff8f0;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.hn-link:hover {
+  background: #ff6600;
+  color: white;
+  text-decoration: none;
+}
+
+/* DataTables custom styling */
+.dataTables_wrapper .dataTables_filter {
+  margin-bottom: 1rem;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  transition: border-color 0.2s ease;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+  outline: none;
+  border-color: #ff6600;
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
+}
+
+.dataTables_wrapper .dataTables_filter label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.table-top {
+  margin-bottom: 1rem;
+}
+
+.no-articles {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.no-articles p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.no-articles code {
+  background: #f4f4f4;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #ff6600;
+  display: inline-block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .table-container {
+    padding: 1rem;
+  }
+
+  .articles-table thead th,
+  .articles-table tbody td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .points-badge {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .hn-link {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
