@@ -8,12 +8,10 @@ function ArticlesTable({ articles }) {
   const dataTableRef = useRef(null);
 
   useEffect(() => {
-    // Destroy existing DataTable if it exists
     if (dataTableRef.current) {
       dataTableRef.current.destroy();
     }
 
-    // Initialize DataTable
     if (tableRef.current && articles.length > 0) {
       dataTableRef.current = $(tableRef.current).DataTable({
         data: articles,
@@ -75,7 +73,6 @@ function ArticlesTable({ articles }) {
         },
         dom: '<"table-top"f>rt',
         drawCallback: function() {
-          // Add custom styling after table is drawn
           $(tableRef.current).find('tbody tr').addClass('table-row');
         }
       });
