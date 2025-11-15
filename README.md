@@ -136,15 +136,6 @@ docker-compose exec backend flask scrape    # Run scraper
 docker-compose logs -f                 # View logs
 ```
 
-### Make Commands (Linux/Unix with Makefile)
-```bash
-make up          # Start services
-make down        # Stop services
-make scrape      # Run scraper
-make logs        # View logs
-make test        # Run tests
-```
-
 ## Tech Stack
 
 * Backend: Flask, SQLAlchemy, BeautifulSoup
