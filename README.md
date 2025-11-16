@@ -89,7 +89,7 @@ createdb hn_scraper
 ```bash
 cp .env.example .env
 ```
-Edit `.env` with your database credentials.
+Edit `.env` with your database credentials (has default values and works locally without configuration).
 
 4. Initialize database:
 ```bash
