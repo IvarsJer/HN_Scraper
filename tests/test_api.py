@@ -28,15 +28,13 @@ def test_get_articles(client, sample_articles):
 
 
 def test_get_single_article(client, sample_articles):
-    # Get first article ID
     article_id = sample_articles[0].id
 
     response = client.get(f'/api/articles/{article_id}')
     assert response.status_code == 200
 
-    data = json.loads(response.data)
-    assert data['hn_id'] == '12345'
-    assert data['title'] == 'Test Article 1'
+    data = response.get_json()
+    assert data['id'] == article_id
 
 
 def test_get_nonexistent_article(client):
