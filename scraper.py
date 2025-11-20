@@ -87,7 +87,8 @@ class HNScraper:
             return None
 
         try:
-            return datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+            iso_part = date_str.split()[0]
+            return datetime.strptime(iso_part, "%Y-%m-%dT%H:%M:%S")
         except Exception:
             return None
 
@@ -101,6 +102,10 @@ class HNScraper:
 
                 if existing:
                     existing.points = article_data['points']
+
+                    if existing.date_created is None and article_data.get('date_created'):
+                        existing.date_created = article_data['date_created']
+
                     existing.date_updated = datetime.utcnow()
                     updated += 1
                 else:
@@ -109,7 +114,7 @@ class HNScraper:
                         title=article_data['title'],
                         link=article_data['link'],
                         points=article_data['points'],
-                        date_created=article_data['date_created']
+                        date_created=article_data.get('date_created')
                     )
                     db.session.add(article)
                     saved += 1
