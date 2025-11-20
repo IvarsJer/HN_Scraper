@@ -49,8 +49,20 @@ function App() {
     }
   };
 
-  const handleRefresh = () => {
-    fetchArticles(currentPage);
+  const handleRefresh = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      await axios.post(`${API_URL}/api/scrape`);
+
+      await fetchArticles(currentPage);
+    } catch (err) {
+      console.error('Error refreshing articles:', err);
+      setError(err.message || 'Failed to refresh articles');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
