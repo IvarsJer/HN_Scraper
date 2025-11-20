@@ -60,6 +60,33 @@ def create_app(config_name='default'):
     def health_check():
         return jsonify({'status': 'healthy'})
 
+    @app.route('/api/scrape', methods=['POST'])
+    def api_scrape():
+        try:
+            scraper = HNScraper(app.config['HN_URL'])
+
+            update = request.args.get('update', 'false').lower() == 'true'
+
+            if update:
+                updated = scraper.update_points()
+                return jsonify({
+                    'status': 'ok',
+                    'mode': 'update',
+                    'updated': updated,
+                })
+
+            articles = scraper.scrape_articles()
+            saved, updated = scraper.save_articles(articles)
+
+            return jsonify({
+                'status': 'ok',
+                'mode': 'full',
+                'saved': saved,
+                'updated': updated,
+            })
+        except Exception as e:
+            return jsonify({'status': 'error', 'error': str(e)}), 500
+
     return app
 
 
